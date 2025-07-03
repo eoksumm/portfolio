@@ -1,0 +1,185 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Eren Oksüm's CV},
+    pdfauthor={Eren Oksüm},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0 cm}{0 cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 100cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Eren Öksüm
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{\faMapMarker*~Berlin, Germany}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faEnvelope~\href{mailto:eoksumm@gmail.com}{eoksumm@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faPhone~(+49) 178 564 8653}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faLinkedin~\href{https://linkedin.com/in/erenoksum}{linkedin.com/in/erenoksum}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faGithub~\href{https://github.com/eoksumm}{github.com/eoksumm}}%
+    \end{header}
+
+    \vspace{10 pt}
+
+    \section{About Me}
+    \begin{onecolentry}
+        Enthusiastic software engineering student with experience in web development and Python programming. Eager to further develop my skills by working on real-world projects and contributing to a team.
+    \end{onecolentry}
+
+    \section{Work Experience}
+        \begin{twocolentry}{
+            15 Oct 2023 -- Present
+        }
+            \textbf{Bartender}, Gastrokult GmbH -- Berlin, Germany
+        \end{twocolentry}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Efficiently handled simultaneous orders, collaborated effectively with colleagues to maintain smooth service.
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Education}
+    \begin{twocolentry}{
+        Oct 2024 -- Present
+    }
+        \textbf{BEng in Software Engineering}, GISMA University of Applied Sciences -- Berlin, Germany
+    \end{twocolentry}
+
+    \vspace{0.10 cm}
+        \textbf{Data Science \& Business}, Berlin International University of Applied Sciences -- Berlin, Germany
+
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        Studied for two years before transferring to GISMA University of Applied Sciences.
+    \end{onecolentry}
+
+    \section{Skills}
+    \begin{onecolentry}
+        \textbf{Programming:} Python, HTML, CSS \\
+        \textbf{Computer Networking:} Basic knowledge of networking concepts and protocols, problem-solving in network setup and troubleshooting \\
+        \textbf{Software:} Microsoft Office (Word, Excel, PowerPoint, Outlook, Access), Adobe Photoshop, VS Code \\
+        \textbf{Other:} IT troubleshooting, technology literacy, quick learner, experience with Windows, macOS, and Linux, remote collaboration tools (Zoom, Teams, Slack) \\
+        \textbf{Soft Skills:} Good communicator, teamwork, critical thinking, willingness to learn, adaptability, attention to detail
+    \end{onecolentry}
+
+    % Eklemek istediğin yeni bölümleri bu şablon üzerinden ekleyebilirsin (Projects, Certificates, Interests vs.)
+
+\end{document}
