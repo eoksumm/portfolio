@@ -1,5 +1,6 @@
 # Portfolio Website
 
+## [Check it out: 🌐](https://eoksumm.github.io/portfolio)
 ## Technologies
 
 - <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white" alt="HTML5" height="20"/> HTML5  
